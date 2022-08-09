@@ -1,6 +1,13 @@
-# install.packages("telegram.bot")
+tryCatch(library(telegram.bot),
+         error=function(e){
+           install.packages('telegram.bot')
+           library(telegram.bot)
+         }
+)
 
-readRenviron('.env')
+script.dir <- dirname(sys.frame(1)$ofile) ### work in source()
+# script.dir <- getwd() ### not work when direct commanding in rstudio
+readRenviron(file.path(script.dir, '.env'))
 TELEGRAM_BOT_TOKEN <- Sys.getenv('TELEGRAM_BOT_TOKEN_R')
 TELEGRAM_CHAT_ID <- Sys.getenv('TELEGRAM_CHAT_ID')
 

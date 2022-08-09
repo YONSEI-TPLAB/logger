@@ -1,5 +1,7 @@
-if(!exists('logger_telegram', mode='function')) source('logger_telegram.r')
-if(!exists('logger_teams', mode='function')) source('logger_teams.r')
+script.dir <- dirname(sys.frame(1)$ofile) ### work in source()
+# script.dir <- getwd() ### not work when direct commanding in rstudio
+if(!exists('logger_telegram', mode='function')) source(file.path(script.dir, 'logger_telegram.r'))
+if(!exists('logger_teams', mode='function')) source(file.path(script.dir, 'logger_teams.r'))
 
 ### PREDEFINE common arguments
 logger.title <- 'TPLAB'

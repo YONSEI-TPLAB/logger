@@ -1,6 +1,13 @@
-# install.packages("teamr")
+tryCatch(library(teamr),
+         error=function(e){
+           install.packages('teamr')
+           library(teamr)
+         }
+)
 
-readRenviron('.env')
+script.dir <- dirname(sys.frame(1)$ofile) ### work in source()
+# script.dir <- getwd() ### not work when direct commanding in rstudio
+readRenviron(file.path(script.dir, '.env'))
 TEAMS_CONNECTCARD_WEBHOOK_URL <- Sys.getenv('TEAMS_CONNECTCARD_WEBHOOK_URL_R')
 
 logger_teams <- function(title, message='', ..., FUN){
