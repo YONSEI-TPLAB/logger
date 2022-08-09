@@ -19,7 +19,7 @@ except ImportError:
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path) ## to seperate private contents to .env file
 
-TEAMS_CONNECTCARD_WEBHOOK_URL = os.environ.get('TEAMS_CONNECTCARD_WEBHOOK_URL')
+TEAMS_CONNECTCARD_WEBHOOK_URL = os.environ.get('TEAMS_CONNECTCARD_WEBHOOK_URL_PYTHON')
 
 
 def logger_teams(title, message=None):

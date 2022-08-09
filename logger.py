@@ -2,6 +2,7 @@ import logging
 import logger_telegram
 import logger_teams
 
+### FUNC logger.info()
 class logger:
   def __init__(self, title, *, telegram_chat_id=None, type=['console', 'telegram', 'teams']):
     self.__title = title

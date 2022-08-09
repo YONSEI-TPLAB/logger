@@ -18,7 +18,7 @@ except ImportError:
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path) ## to seperate private contents to .env file
 
-TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
+TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN_PYTHON')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID') if 'TELEGRAM_CHAT_ID' in os.environ else None
 
 def get_recent_chat_id(*, verbose=False):
@@ -51,7 +51,7 @@ def logger_telegram(title, message=None, *, chat_id=None, verbose=False):
       chat_id = TELEGRAM_CHAT_ID
     else:
       try:
-        chat_id = get_recent_chat_id()
+        chat_id = get_recent_chat_id(verbose=verbose)
       except:
         raise Exception('Chat ID not found, please send any message to bot to get your chat ID')
 
