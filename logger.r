@@ -8,7 +8,7 @@ logger.title <- 'TPLAB'
 logger.type <- c('console', 'telegram', 'teams')
 
 ### FUNC logger.info()
-logger.info <- function(title=logger.title, message='', ..., FUN, chat_id, verbose=FALSE, type=logger.type){
+logger.info <- function(message, ..., title=logger.title, FUN, chat_id, verbose=FALSE, type=logger.type){
   if('console' %in% type){
     tryCatch(
       writeLines(message)
